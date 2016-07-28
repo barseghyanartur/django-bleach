@@ -25,6 +25,7 @@ for setting, kwarg in possible_settings.items():
 
 
 def bleach_value(value):
+    """Bleach value."""
     bleached_value = bleach.clean(value, **bleach_args)
     return mark_safe(bleached_value)
 
@@ -32,4 +33,5 @@ register.filter('bleach', bleach_value)
 
 @register.filter
 def bleach_linkify(value):
+    """Bleach linkify."""
     return bleach.linkify(value, parse_email=True)

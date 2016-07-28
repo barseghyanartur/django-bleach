@@ -41,7 +41,7 @@ class BleachCharField(models.CharField, BleachMixin):
     def __init__(self, allowed_tags=None, allowed_attributes=None,
                  allowed_styles=None, strip_tags=None, strip_comments=None,
                  *args, **kwargs):
-        """Constructor.""".
+        """Constructor."""
         super(BleachCharField, self).__init__(*args, **kwargs)
 
         self._do_init(allowed_tags=allowed_tags, 
@@ -56,7 +56,7 @@ class BleachCharField(models.CharField, BleachMixin):
 
 
 class BleachTextField(models.TextField, BleachMixin):
-    """Bleach TextField""".
+    """Bleach TextField"""
 
     def __init__(self, allowed_tags=None, allowed_attributes=None,
                  allowed_styles=None, strip_tags=None, strip_comments=None,

@@ -12,7 +12,7 @@ __all__ = ('load_widget', 'default_widget', 'BleachField',)
 
 
 def load_widget(path):
-    """Load widgets.""".
+    """Load widgets."""
     i = path.rfind('.')
     module, attr = path[:i], path[i + 1:]
     try:
