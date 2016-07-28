@@ -66,17 +66,19 @@ by using the ``BleachField`` model field::
     # in app/models.py
 
     from django import models
-    from django_bleach.models import BleachField
+    from django_bleach.models import BleachCharField, BleachTextField
 
     class Post(models.Model):
 
-        title = models.CharField()
-        content = BleachField()
+        title = models.CharField(max_length=255)
+        safe_title = models.BleachCharField(max_length=255)
+        content = models.TextField()
+        safe_content = BleachTextField()
 
         # ...
 
-``BleachField`` takes the following arguments, to customise the output of
-``bleach``. See the `bleach documentation`_ for their use:
+Both ``BleachCharField`` and ``BleachTextField`` fields take the following arguments, 
+to customise the output of ``bleach``. See the `bleach documentation`_ for their use:
 
 * ``allowed_tags``
 * ``allowed_attributes``
