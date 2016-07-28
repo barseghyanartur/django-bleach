@@ -1,3 +1,8 @@
+Version 0.4.0
+=============
+
+* Add BleachCharField and BleachTextField model fields.
+
 Version 0.3.0
 =============
 
