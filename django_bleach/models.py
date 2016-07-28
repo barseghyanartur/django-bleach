@@ -13,19 +13,19 @@ class BleachMixin(object):
 
     def _do_init(allowed_tags=None, allowed_attributes=None, allowed_styles=None, 
                  strip_tags=None, strip_comments=None):
-      """Do init."""
-      self.bleach_kwargs = get_bleach_default_options()
+        """Do init."""
+        self.bleach_kwargs = get_bleach_default_options()
 
-          if allowed_tags:
-              self.bleach_kwargs['tags'] = allowed_tags
-          if allowed_attributes:
-              self.bleach_kwargs['attributes'] = allowed_attributes
-          if allowed_styles:
-              self.bleach_kwargs['styles'] = allowed_styles
-          if strip_tags:
-              self.bleach_kwargs['strip'] = strip_tags
-          if strip_comments:
-              self.bleach_kwargs['strip_comments'] = strip_comments
+        if allowed_tags:
+            self.bleach_kwargs['tags'] = allowed_tags
+        if allowed_attributes:
+            self.bleach_kwargs['attributes'] = allowed_attributes
+        if allowed_styles:
+            self.bleach_kwargs['styles'] = allowed_styles
+        if strip_tags:
+            self.bleach_kwargs['strip'] = strip_tags
+        if strip_comments:
+            self.bleach_kwargs['strip_comments'] = strip_comments
 
     def _do_pre_save(self, model_instance, add):
         """Do pre save."""
