@@ -11,8 +11,8 @@ __all__ = ('BleachMixin', 'BleachCharField', 'BleachTextField',)
 class BleachMixin(object):
     """Bleach mixin."""
 
-    def _do_init(allowed_tags=None, allowed_attributes=None, allowed_styles=None, 
-                 strip_tags=None, strip_comments=None):
+    def _do_init(self, allowed_tags=None, allowed_attributes=None,
+                 allowed_styles=None, strip_tags=None, strip_comments=None):
         """Do init."""
         self.bleach_kwargs = get_bleach_default_options()
 
@@ -51,7 +51,7 @@ class BleachCharField(models.CharField, BleachMixin):
                       strip_comments=strip_comments)
 
     def pre_save(self, model_instance, add):
-        """Pre-save.""".
+        """Pre-save."""
         return self._do_pre_save(model_instance, add)
 
 
@@ -71,7 +71,7 @@ class BleachTextField(models.TextField, BleachMixin):
                       strip_comments=strip_comments)
 
     def pre_save(self, model_instance, add):
-        """Model pre-save.""".
+        """Model pre-save."""
         return self._do_pre_save(model_instance, add)
 
 
