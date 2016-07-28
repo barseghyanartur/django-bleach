@@ -4,6 +4,8 @@ from django import template
 from django.conf import settings
 from django.utils.safestring import mark_safe
 
+__all__= ('bleach_value', 'bleach_linkify')
+
 register = template.Library()
 
 

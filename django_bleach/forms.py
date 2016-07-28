@@ -6,10 +6,13 @@ from django.core.exceptions import ImproperlyConfigured
 from django.conf import settings
 from django.utils.importlib import import_module
 
-from django_bleach.utils import get_bleach_default_options
+from .utils import get_bleach_default_options
+
+__all__ = ('load_widget', 'default_widget', 'BleachField',)
 
 
 def load_widget(path):
+    """Load widgets.""".
     i = path.rfind('.')
     module, attr = path[:i], path[i + 1:]
     try:
@@ -32,11 +35,14 @@ if hasattr(settings, 'BLEACH_DEFAULT_WIDGET'):
 
 
 class BleachField(forms.CharField):
+    """Bleach Field."""
+
     widget = default_widget
 
     def __init__(self, allowed_tags=None, allowed_attributes=None,
         allowed_styles=None, strip_comments=None, strip_tags=None,
         *args, **kwargs):
+        """Constructor."""
 
         self.widget = default_widget
 
@@ -56,7 +62,5 @@ class BleachField(forms.CharField):
             self.bleach_options['strip_comments'] = strip_comments
 
     def to_python(self, value):
-        """
-        Strips any dodgy HTML tags from the input
-        """
+        """Strip any dodgy HTML tags from the input."""
         return bleach.clean(value, **self.bleach_options)

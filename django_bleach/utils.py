@@ -1,7 +1,10 @@
 from django.conf import settings
 
+__all__ = ('get_bleach_default_options',)
+
 
 def get_bleach_default_options():
+    """Get bleach default options."""
     bleach_args = {}
 
     if hasattr(settings, "BLEACH_ALLOWED_TAGS"):
