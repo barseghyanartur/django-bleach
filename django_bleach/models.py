@@ -29,10 +29,10 @@ class BleachMixin(object):
 
     def _do_pre_save(self, model_instance, add):
         """Do pre save."""
-        return clean(
-            getattr(model_instance, self.attname),
-            **self.bleach_kwargs
-        )
+        value = getattr(model_instance, self.attname)
+        if value:
+            value = clean(value, **self.bleach_kwargs)
+        return value
 
 
 class BleachCharField(models.CharField, BleachMixin):
